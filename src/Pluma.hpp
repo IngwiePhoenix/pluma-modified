@@ -28,9 +28,9 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <Pluma/Config.hpp>
-#include <Pluma/Provider.hpp>
-#include <Pluma/PluginManager.hpp>
+#include "Config.hpp"
+#include "Provider.hpp"
+#include "PluginManager.hpp"
 
 ////////////////////////////////////////////////////////////
 // Andy macro to convert parameter to string
@@ -128,7 +128,7 @@ public:
     void getProviders(std::vector<ProviderType*>& providers);
 };
 
-#include <Pluma/Pluma.inl>
+#include "Pluma.inl"
 
 }
 

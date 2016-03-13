@@ -22,43 +22,31 @@
 //
 ////////////////////////////////////////////////////////////
 
-#ifndef PLUMA_DIRECTORY_HPP
-#define PLUMA_DIRECTORY_HPP
 
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <Pluma/Config.hpp>
-#include <string>
-#include <list>
+#include "Provider.hpp"
+#include "Host.hpp"
 
 
 namespace pluma{
 
-namespace dir{
+////////////////////////////////////////////////////////////
+Provider::~Provider(){
+    // Nothing to do
+}
+
 
 ////////////////////////////////////////////////////////////
-/// \brief List files of a directory.
-///
-/// \param list The output files list.
-/// \param folder The folder where to search in
-/// \param extension A file extension filter,
-/// empty extension will match all files.
-/// \param recursive If true it will list files in
-/// sub directories as well.
-///
-////////////////////////////////////////////////////////////
-void listFiles(
-    std::list<std::string>& list,
-    const std::string& folder,
-    const std::string& extension = "",
-    bool recursive = false
-);
-
-
-}   // namespace dir
+bool Provider::isCompatible(const Host& host) const{
+    // check compatibility with host
+    const std::string& type = this->plumaGetType();
+    if (!host.knows(type)) return false;
+    unsigned int lowest = host.getLowestVersion(type);
+    unsigned int current = host.getVersion(type);
+    unsigned int myVersion = this->getVersion();
+    return lowest <= myVersion && myVersion <= current;
+}
 
 }   // namespace pluma
-
-
-#endif // PLUMA_DIRECTORY_HPP

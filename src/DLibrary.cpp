@@ -26,7 +26,7 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <Pluma/DLibrary.hpp>
+#include "DLibrary.hpp"
 #include <cstdio>
 #include <string>
 
@@ -103,4 +103,3 @@ DLibrary::DLibrary(void* handle):
 }
 
 }   // namespace pluma
-

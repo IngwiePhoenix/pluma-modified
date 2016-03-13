@@ -26,9 +26,9 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <Pluma/PluginManager.hpp>
-#include <Pluma/DLibrary.hpp>
-#include <Pluma/Dir.hpp>
+#include "PluginManager.hpp"
+#include "DLibrary.hpp"
+#include "Dir.hpp"
 #include <cstdio>
 
 namespace pluma{
@@ -198,4 +198,3 @@ const std::list<Provider*>* PluginManager::getProviders(const std::string& type)
 
 
 }   // namespace pluma
-
